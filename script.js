@@ -25,11 +25,22 @@ closeFormBtn.addEventListener('click', ()=>{
     formModal.style.display = 'none;'
 })
 
+function hasValidInput(text){
+    return text.length >= 3;
+}
+
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
     const taskText = input.value;
-    console.log("Input value: "+taskText);
+
+    if(!hasValidInput(taskText)){
+        alert("Please enter at least 3 characters.");
+        return;
+    }
+
+  
+
     const newTask = document.createElement('li');
     newTask.textContent =taskText;
 
@@ -39,35 +50,9 @@ form.addEventListener('submit', function(event){
 
 })
 
-// Event listener for form submission
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevents page reload
 
-    // Get the input value
-    const taskText = input.value;
-
-    // Create a new <li> element
-    const newTask = document.createElement('li');
-    newTask.textContent = taskText; // Set the task text
-
-    // Add the new <li> to the task list
-    chores.appendChild(newTask);
-
-    // Clear the input field
-    input.value = '';
-});
-
-
-// const addButton = document.querySelector('#addButton');
 const removeButton = document.querySelector('#removeButton');
 
-// addButton.addEventListener('click', () =>{
-//     const newTask = document.createElement('li');
-//     const newTaskText = document.createTextNode('');
-
-//     newTask.append(newTaskText);
-//     chores.appendChild(newTask);
-// })
 
 
 removeButton.addEventListener('click', ()=>{
