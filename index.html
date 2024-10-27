@@ -13,19 +13,26 @@
 <body>
 
     <h1 class="heading">To-Do</h1>
-
-    <ul id="chores">
-        <li>Prepare supper</li>
-        <li>Laundry</li>
-    </ul>
     <hr>
 
-    <button id="addButton" action="/formTask.html">Add Task</button>
+    <button id="openFormBtn">Add Task</button>
+
+    <div id="formModal">
+        <div class="modal-content">
+            <form id="taskForm">
+                <input type="text" id="taskInput" required min="3" placeholder="Enter a new task">
+                <button type="submit">Submit</button>
+            </form>
+            <button id="closeFormBtn">Close</button>
+        </div>
+     
+     </div> 
+     
+     <ul id="chores"></ul> 
+
     <button id="removeButton">Remove Task</button>
 
-   
-
-    
+       
     <script src="script.js">
     </script>
 </body>

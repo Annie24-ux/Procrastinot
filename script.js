@@ -1,16 +1,43 @@
 
-const chores = document.querySelectorAll('chores');
+// const chores = document.querySelector('#chores');
 
-chores.forEach(chore =>{
-    chore.addEventListener('click', () =>{
-        chore.classList.toggle('completed');
-    })
+
+// console.log("present chores: "+chores)
+
+// chores.forEach(chore =>{
+//     chore.addEventListener('click', () =>{
+//         chore.classList.toggle('completed');
+//     })
+// })
+
+const chores = document.getElementById('chores');
+const form = document.querySelector('#taskForm');
+const input = document.querySelector('#taskInput');
+const openFormBtn = document.getElementById('openFormBtn');
+const closeFormBtn = document.getElementById('closeFormBtn');
+const formModal = document.getElementById('formModal');
+
+openFormBtn.addEventListener('click',() =>{
+    formModal.style.display = 'block';
 })
 
+closeFormBtn.addEventListener('click', ()=>{
+    formModal.style.display = 'none;'
+})
 
-// Select elements
-const form = document.querySelector('taskForm');
-const input = document.querySelector('taskInput');
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    const taskText = input.value;
+    console.log("Input value: "+taskText);
+    const newTask = document.createElement('li');
+    newTask.textContent =taskText;
+
+    chores.appendChild(newTask);
+    input.value = '';
+    formModal.style.display = 'none';
+
+})
 
 // Event listener for form submission
 form.addEventListener('submit', function(event) {
@@ -24,14 +51,14 @@ form.addEventListener('submit', function(event) {
     newTask.textContent = taskText; // Set the task text
 
     // Add the new <li> to the task list
-    choices.appendChild(newTask);
+    chores.appendChild(newTask);
 
     // Clear the input field
     input.value = '';
 });
 
 
-const addButton = document.querySelector('#addButton');
+// const addButton = document.querySelector('#addButton');
 const removeButton = document.querySelector('#removeButton');
 
 // addButton.addEventListener('click', () =>{
