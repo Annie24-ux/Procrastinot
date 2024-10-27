@@ -1,15 +1,3 @@
-
-// const chores = document.querySelector('#chores');
-
-
-// console.log("present chores: "+chores)
-
-// chores.forEach(chore =>{
-//     chore.addEventListener('click', () =>{
-//         chore.classList.toggle('completed');
-//     })
-// })
-
 const chores = document.getElementById('chores');
 const form = document.querySelector('#taskForm');
 const input = document.querySelector('#taskInput');
@@ -39,10 +27,12 @@ form.addEventListener('submit', function(event){
         return;
     }
 
-  
-
     const newTask = document.createElement('li');
     newTask.textContent =taskText;
+
+    newTask.addEventListener('click', ()=>{
+        newTask.classList.toggle('completed');
+    })
 
     chores.appendChild(newTask);
     input.value = '';
@@ -52,9 +42,6 @@ form.addEventListener('submit', function(event){
 
 
 const removeButton = document.querySelector('#removeButton');
-
-
-
 removeButton.addEventListener('click', ()=>{
     const toBeRemoved = document.querySelector('li:nth-child(2)')
 
